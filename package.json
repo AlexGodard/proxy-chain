@@ -1,5 +1,5 @@
 {
-  "name": "proxy-chain",
+  "name": "@alexgodard/proxy-chain",
   "version": "0.4.7",
   "description": "Node.js implementation of a proxy server (think Squid) with support for SSL, authentication, upstream proxy chaining, and protocol tunneling.",
   "main": "build/index.js",
@@ -21,7 +21,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apifytech/proxy-chain"
+    "url": "git+https://github.com/alexgodard/proxy-chain"
   },
   "bugs": {
     "url": "https://github.com/apifytech/proxy-chain/issues"
@@ -35,7 +35,6 @@
     "local-proxy": "npm run build && node ./build/run_locally.js",
     "test": "npm run build && NODE_OPTIONS=--insecure-http-parser mocha --exit --recursive",
     "prepare": "npm run build",
-    "prepublishOnly": "(test $RUNNING_FROM_SCRIPT || (echo \"You must use publish.sh instead of 'npm publish' directly!\"; exit 1)) && npm test && npm run lint",
     "clean": "rm -rf build",
     "lint": "npm run build && eslint src",
     "lint-fix": "npm run build && eslint src --fix"
