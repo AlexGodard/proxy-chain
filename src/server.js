@@ -367,6 +367,7 @@ export class Server extends EventEmitter {
         if (err.name === REQUEST_ERROR_NAME) {
             this.log(handlerId, `Request failed (status ${err.statusCode}): ${err.message}`);
             this.sendResponse(request.socket, err.statusCode, err.headers, err.message);
+            this.emit('requestFailed', { error: err, request });
         } else {
             this.log(handlerId, `Request failed with unknown error: ${err.stack || err}`);
             this.sendResponse(request.socket, 500, null, 'Internal error in proxy server');
